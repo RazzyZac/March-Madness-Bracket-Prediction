@@ -12,10 +12,17 @@ The model training/bracket predicting part of the code uses a random forest regr
 Going over what each function does:
 
 string_modify: adds onto the end of the column names. It's used in the code to add _r to the end of the column names. This isn't necessary and it's more an artifact of when I was trying to had _a away team columns and _h home team columns
+
 scoretrip: takes a teams record in string form 'W-L' and returns an integer value of W and L.
+
 dict_from_lists: takes a list of keys and values and returns a dictionary to be added to a dataframe
+
 datasetup: calculates all the boxscore statistics that each team has from the previous games and creates a dataframe where each row has a teams previous statistics and has the points scored in that current game.
+
 finishdatasetup: takes the dataframe created in datasetup and takes the differences in statistics for each game to set up the dataframe that will be fed into the machine learning model.
+
 year_to_df: combines all the previous functions such that all you need to is input the season year that you want and it outputs the final dataframe of that year that can be fed to the model.
 
-train_test_split: splits the data into training and testing data. Inputs are season_data, perct, and cut_off. season_data is a list with as many seasons as you want, so it could be [df_20,df_21,df_23,df_24] if you want to feed 2020-2024 data into the model or it could just be [df_24]
+train_test_split: splits the data into training and testing data. Inputs are season_data, perct, and cut_off. season_data is a list with as many seasons as you want, so it could be [df_20,df_21,df_23,df_24] if you want to feed 2020-2024 data into the model or it could just be [df_24]. perct specifies ther percentage of testing data, test data is taken from the end of the dataframe
+
+
